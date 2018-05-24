@@ -2,14 +2,14 @@
 use yii\widgets\DetailView;
 //$bookings
 
-$this->title = "View Bookings: $booking->name";
+$this->title = "Bookings: $model->id";
 $this->params['breadcrumbs'][] = ['label'=>'', 'url'=>['/bookings/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1><?= $this->title; ?></h1>s
+<h1><?= $this->title; ?></h1>
 
 <?= DetailView::widget([
-    'model' => $room,
+    'model' => $model,
     'attributes' => [
         'id',
         'customer_id',

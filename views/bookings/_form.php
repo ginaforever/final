@@ -12,17 +12,15 @@ use app\models\Rooms;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'room_id')->dropDownList(ArrayHelper::map(
-        Customer::find()->asArray()->all(), 'id','phone')) ?>
-
     <?= $form->field($model, 'customer_id')->dropDownList(ArrayHelper::map(
-        Rooms::find()->asArray()->all(), 'id','capacity')) ?>
+        Rooms::find()->asArray()->all(), 'id','description')) ?>
 
     <?= $form->field($model, 'arrive')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'leave')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'people')->textInput(['maxlength' => true]) ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
