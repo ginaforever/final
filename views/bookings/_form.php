@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Customer;
-use app\models\Rooms;
+use dosamigos\datetimepicker\DateTimePicker;
 
 ?>
 
@@ -13,11 +13,37 @@ use app\models\Rooms;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'customer_id')->dropDownList(ArrayHelper::map(
-        Rooms::find()->asArray()->all(), 'id','description')) ?>
+        Customer::find()->all(), 'id','name')) ?>
 
-    <?= $form->field($model, 'arrive')->textInput(['maxlength' => true]) ?>
+    <div class="form-group">
+        <label for="arrive">Arrival</label>
+        <?= DateTimePicker::widget([
+            'model' => $model,
+            'attribute' => 'arrive',
+            'language' => 'en',
+            'size' => 'ms',
+            'clientOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd hh:ii:s',
+                'todayBtn' => false
+            ]
+        ]);?>
+    </div>
 
-    <?= $form->field($model, 'leave')->textInput(['maxlength' => true]) ?>
+    <div class="form-group">
+        <label for="arrive">Departure</label>
+        <?= DateTimePicker::widget([
+            'model' => $model,
+            'attribute' => 'leave',
+            'language' => 'en',
+            'size' => 'ms',
+            'clientOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd hh:ii:s',
+                'todayBtn' => false
+            ]
+        ]);?>
+    </div>
 
     <?= $form->field($model, 'people')->textInput(['maxlength' => true]) ?>
     
